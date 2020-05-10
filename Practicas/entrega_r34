@@ -1,0 +1,84 @@
+--------------------------------------------------------------------------------
+      X1 = u
+      X2 = w
+      Y = u ^ |w|
+
+[R]
+      Z1 <- X1
+      IF X2 != # GOTO [NP]
+      HALT
+[NP]
+      X2 <- X2-
+[SC]
+      IF Z1 ENDS 0 GOTO C0
+      IF Z1 ENDS 1 GOTO C1
+      GOTO [R]
+[C0]
+      Z1 <- Z1-
+      Y <- 0Y
+      GOTO SC
+[C1]
+      Z1 <- Z1-
+      Y <- 1Y
+      GOTO SC
+--------------------------------------------------------------------------------
+      RIGHT TO NEXT BLANK
+      PRINT d
+      LEFT TO NEXT BLANK
+      RIGHT TO NEXT C
+[EW]
+      RIGHT
+      IF # GOTO EW
+      IF D GOTO BT
+      PRINT #
+      LEFT TO NEXT C
+      LEFT TO NEXT BLANK
+[S]
+      IF 0 GOTO E0
+      IF 1 GOTO E1
+      IF c GOTO RW
+      RIGHT
+      GOTO S
+[E0]
+      PRINT a
+      RIGHT TO NEXT D
+      RIGHT TO NEXT BLANK
+      PRINT 0
+      LEFT TO NEXT D
+      LEFT TO NEXT C
+      LEFT TO NEXT BLANK
+      GOTO S
+[E1]
+      PRINT b
+      RIGHT TO NEXT D
+      RIGHT TO NEXT BLANK
+      PRINT 1
+      LEFT TO NEXT D
+      LEFT TO NEXT C
+      LEFT TO NEXT BLANK
+      GOTO S
+[RW]
+      LEFT TO NEXT BLANK
+[C]
+      RIGHT
+      IF a GOTO R0
+      IF b GOTO R1
+      IF c GOTO EW
+[R0]
+      PRINT 0
+      GOTO C
+[R1]
+      PRINT 1
+      GOTO C
+[BT]
+      LEFT TO NEXT C
+      LEFT TO NEXT BLANK
+[D]
+      PRINT #
+      RIGHT
+      IF D GOTO H
+      GOTO D
+[H]
+      PRINT #
+      HALT
+--------------------------------------------------------------------------------

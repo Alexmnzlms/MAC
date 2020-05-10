@@ -1,0 +1,208 @@
+[A0]  IF Z ENDS 0 GOTO B00
+      IF Z ENDS y GOTO B03
+
+[A1]  IF Z ENDS 0 GOTO B10
+      IF Z ENDS 1 GOTO B11
+      IF Z ENDS y GOTO B13
+
+[A2]  IF Z ENDS O GOTO B20
+      IF Z ENDS X GOTO B22
+      IF Z ENDS y GOTO B23
+
+[A3]  IF Z ENDS y GOTO B33
+      IF Z ENDS # GOTO B34
+
+[A4]  IF Z ENDS 0 GOTO C0
+      IF Z ENDS 1 GOTO C1
+      IF Z ENDS x GOTO C2
+      IF Z ENDS y GOTO C3
+      IF Z ENDS # GOTO C4
+
+[C0]  Y <- 0Y
+      GOTO B
+[C1]  Y <- 1Y
+      GOTO B
+[C2]  Y <- xY
+      GOTO B
+[C3]  Y <- yY
+      GOTO B
+[C4]  Y <- #Y
+      GOTO B
+[B]   IF X ENDS 0 GOTO D0
+      IF X ENDS 1 GOTO D1
+      IF X ENDS x GOTO D2
+      IF X ENDS y GOTO D3
+      IF X ENDS # GOTO D4
+      HALT
+[D0]  Y <- 0Y
+      X <- X-
+      GOTO B
+[D1]  Y <- 1Y
+      X <- X-
+      GOTO B
+[D2]  Y <- xY
+      X <- X-
+      GOTO B
+[D3]  Y <- yY
+      X <- X-
+      GOTO B
+[D4]  Y <- #Y
+      X <- X-
+      GOTO B
+
+[B00] X <- Xx
+      Z <- epsilon
+      IF Y STARS 0 GOTO C10
+      IF Y STARS 1 GOTO C11
+      IF Y STARS x GOTO C12
+      IF Y STARS y GOTO C13
+      IF Y STARS # GOTO C14
+[B10] X <- X0
+      Z <- epsilon
+      IF Y STARS 0 GOTO C10
+      IF Y STARS 1 GOTO C11
+      IF Y STARS x GOTO C12
+      IF Y STARS y GOTO C13
+      IF Y STARS # GOTO C14
+[B13] X <- Xy
+      Z <- epsilon
+      IF Y STARS 0 GOTO C10
+      IF Y STARS 1 GOTO C11
+      IF Y STARS x GOTO C12
+      IF Y STARS y GOTO C13
+      IF Y STARS # GOTO C14
+[B22] X <- Xx
+      Z <- epsilon
+      IF Y STARS 0 GOTO C00
+      IF Y STARS 1 GOTO C01
+      IF Y STARS x GOTO C02
+      IF Y STARS y GOTO C03
+      IF Y STARS # GOTO C04
+[B33] X <- Xy
+      Z <- epsilon
+      IF Y STARS 0 GOTO C30
+      IF Y STARS 1 GOTO C31
+      IF Y STARS x GOTO C32
+      IF Y STARS y GOTO C33
+      IF Y STARS # GOTO C34
+[B03] X <- Xy
+      Z <- epsilon
+      IF Y STARS 0 GOTO C30
+      IF Y STARS 1 GOTO C31
+      IF Y STARS x GOTO C32
+      IF Y STARS y GOTO C33
+      IF Y STARS # GOTO C34
+[B34] X <- X#
+      Z <- epsilon
+      IF Y STARS 0 GOTO C40
+      IF Y STARS 1 GOTO C41
+      IF Y STARS x GOTO C42
+      IF Y STARS y GOTO C43
+      IF Y STARS # GOTO C44
+[B11] Y <- yY
+      Z <- epsilon
+      IF X ENDS 0 GOTO D20
+      IF X ENDS 1 GOTO D21
+      IF X ENDS x GOTO D22
+      IF X ENDS y GOTO D23
+      IF X ENDS # GOTO D24
+      Z <- #Z
+      GOTO A2
+[B20] Y <- 0Y
+      Z <- epsilon
+      IF X ENDS 0 GOTO D20
+      IF X ENDS 1 GOTO D21
+      IF X ENDS x GOTO D22
+      IF X ENDS y GOTO D23
+      IF X ENDS # GOTO D24
+      Z <- #Z
+      GOTO A2
+[B23] Y <- yY
+      Z <- epsilon
+      IF X ENDS 0 GOTO D20
+      IF X ENDS 1 GOTO D21
+      IF X ENDS x GOTO D22
+      IF X ENDS y GOTO D23
+      IF X ENDS # GOTO D24
+      Z <- #Z
+      GOTO A2
+
+[C00] Y <- -Y
+      Z <- 0Z
+      GOTO A0
+[C01] Y <- -Y
+      Z <- 1Z
+      GOTO A0
+[C02] Y <- -Y
+      Z <- xZ
+      GOTO A0
+[C03] Y <- -Y
+      Z <- yZ
+      GOTO A0
+[C04] Y <- -Y
+      Z <- #Z
+      GOTO A0
+
+[C10] Y <- -Y
+      Z <- 0Z
+      GOTO A1
+[C11] Y <- -Y
+      Z <- 1Z
+      GOTO A1
+[C12] Y <- -Y
+      Z <- xZ
+      GOTO A1
+[C13] Y <- -Y
+      Z <- yZ
+      GOTO A1
+[C14] Y <- -Y
+      Z <- #Z
+      GOTO A1
+
+[D20] X <- X-
+      Z <- 0Z
+      GOTO A2
+[D21] X <- X-
+      Z <- 1Z
+      GOTO A2
+[D22] X <- X-
+      Z <- xZ
+      GOTO A2
+[D23] X <- X-
+      Z <- yZ
+      GOTO A2
+[D24] X <- X-
+      Z <- #Z
+      GOTO A2
+
+[C30] Y <- -Y
+      Z <- 0Z
+      GOTO A3
+[C31] Y <- -Y
+      Z <- 1Z
+      GOTO A3
+[C32] Y <- -Y
+      Z <- xZ
+      GOTO A3
+[C33] Y <- -Y
+      Z <- yZ
+      GOTO A3
+[C34] Y <- -Y
+      Z <- #Z
+      GOTO A3
+
+[C40] Y <- -Y
+      Z <- 0Z
+      GOTO A4
+[C41] Y <- -Y
+      Z <- 1Z
+      GOTO A4
+[C42] Y <- -Y
+      Z <- xZ
+      GOTO A4
+[C43] Y <- -Y
+      Z <- yZ
+      GOTO A4
+[C44] Y <- -Y
+      Z <- #Z
+      GOTO A4
