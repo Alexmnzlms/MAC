@@ -1,2 +1,5 @@
 *.pdf
 *_ejer
+!Practicas/Ejercicio*
+!Practicas/Relacion*
+!Practicas/Examen*
