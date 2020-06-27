@@ -1,6 +1,6 @@
 *.pdf
 *_ejer
-!Practicas/Ejercicio*
-!Practicas/Relacion*
-!Practicas/Examen*
-!Practicas/Problema*
+Practicas/Relaciones/*
+Practicas/Soluciones/*
+Examenes/*
+Practicas/Entregas/*
